@@ -1,0 +1,43 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-garlito-chatbot": {
+      "projectType": "library",
+      "root": "projects/ngx-garlito-chatbot",
+      "sourceRoot": "projects/ngx-garlito-chatbot/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-garlito-chatbot/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-garlito-chatbot/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-garlito-chatbot/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/ngx-garlito-chatbot/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "6190c01d-8303-4b6d-9c04-5a77f66b5396"
+  }
+}
